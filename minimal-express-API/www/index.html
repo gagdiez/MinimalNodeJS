@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>API for Skylink + Namespace</title>
+</head>
+<body>
+   Hi, this is a minimal CORS enabled API server 
+   <br><br>
+   Usage: Send a PUT request, with the following data:
+   name, lastname.
+   <br><br>
+   Example:
+   <br>
+   -----------------------------------------------------------------------------
+   <br><br>
+   const name = "Guillermo" <br>
+   const lastname = "Gallardo" <br>
+   <br>
+   const data = `{"name":"${name}", "lastname":"${lastname}"}`
+   <br>
+   opts = {method:'PUT', body:data, headers:{'Content-Type':'application/json'}}
+   <br><br>
+  
+   fetch('https://minimal-api.glitch.me/', opts) <br>
+   .then(result => result.json()) <br>
+   .then(result => console.log(result)) <br>
+   .catch(err => console.error('error', err))
+</body>
+</html>
