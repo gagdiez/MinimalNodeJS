@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="container">
+    <h1> Login Page </h1>
+    <p class="lead">Become one of us</p>
+    {% set action="login" %}
+    {% include "user_pass_form.html" %}
+  </div>
+
+{% endblock %}

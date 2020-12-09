@@ -1,0 +1,19 @@
+<html>
+  <head>
+      <meta viewport='width=device-width, initial-scale=1.0'>
+      <title>{{title}}</title>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <script src="http://code.jquery.com/jquery.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    {% if error and error.length > 0 %}
+    <br/><h4 class="alert alert-danger">{{error}}</h4><br/>
+    {% endif %}
+
+    {% block content %}
+      Default content for the template
+    {% endblock %}
+  </body>
+</html>
