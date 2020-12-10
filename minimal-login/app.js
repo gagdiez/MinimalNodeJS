@@ -44,7 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 // mongoose
-mongoose.connect('mongodb://localhost/basic-login');
+mongoose.connect('mongodb://localhost/basic-login',
+                 {useNewUrlParser: true, useUnifiedTopology: true});
 
 // catch 404 and forward to error handler
 function error404(req, res, next){
