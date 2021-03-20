@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="container">
+    <br>
+    {% if not user %}
+    <a href="#" onclick="login()"> Login with NEAR </a>
+    {% else %}
+    <p>
+      You are currently logged in as {{user}} - 
+      <a href="#" onclick="logout()"> Logout </a>
+    </p>
+    {% endif %}
+
+  <br>
+
+  {% if user %}
+  <p> Leave a message! </p>
+  <form role="form" action="/message/"
+        method="post" style='max-width: 300px;'>
+	<input type="text" name="message[text]"/>
+    <button type="submit"> > </button>
+  </form>
+  {% endif %}
+
+  <br>
+
+  <ul>
+  {% for message in messages %}
+    <li>
+      {{message.text}} (@{{message.creator}})
+      {% if user != message.creator %}
+        {% set display = "none" %}
+      {% else %}
+        {% set display = "inline" %}
+      {%endif%}
+      <a href="/message/{{message.id}}/delete" style="display:{{display}}">delete</a>
+    </li>
+  {% else %}
+    <p> There are no messages, be the first to write one! </p>
+  {% endfor %}
+  </div>
+
+{% endblock %}
